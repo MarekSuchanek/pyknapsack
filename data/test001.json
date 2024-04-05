@@ -1,0 +1,25 @@
+{
+  "weight_limit": 5,
+  "items": [
+    {
+      "value": 2,
+      "weight": 1
+    },
+    {
+      "value": 4,
+      "weight": 2
+    },
+    {
+      "value": 0,
+      "weight": 1
+    },
+    {
+      "value": 1,
+      "weight": 1
+    },
+    {
+      "value": 1,
+      "weight": 1
+    }
+  ]
+}

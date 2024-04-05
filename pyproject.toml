@@ -1,0 +1,41 @@
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'pyknapsack'
+version = '0.1.0'
+description = 'Example solutions of knapsack problem'
+readme = 'README.md'
+keywords = ['knapsack', 'solution', 'combinatorics', 'optimization']
+license = { text = 'MIT' }
+authors = [
+    { name = 'Marek Suchánek', email = 'marek.suchanek@cvut.cz' }
+]
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'License :: OSI Approved :: MIT',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3.11',
+]
+requires-python = '>=3.11, <4'
+dependencies = [
+    'BitVector',
+    'click',
+]
+
+[project.urls]
+Homepage = 'https://github.com/MarekSuchanek/pyknapsack'
+Repository = 'https://github.com/MarekSuchanek/pyknapsack'
+
+[project.scripts]
+knapsack = 'knapsack:knapsack_cli'
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+include = ['knapsack']
+
+[tool.distutils.bdist_wheel]
+universal = true
