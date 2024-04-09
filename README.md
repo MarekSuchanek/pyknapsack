@@ -39,6 +39,33 @@ Input is expected in the following JSON format:
 }
 ```
 
+### Batch mode
+
+You can also run the solver in batch mode (`-b`, `--batch`), in that case it expects the file with problem instance in a row:
+
+```txt
+ID n M [B] w1 v1 w2 v2 ... wn vn
+```
+
+where:
+- `ID` - unique identifier of the problem instance
+- `n` - number of items
+- `M` - weight limit
+- `B` - value limit (optional, expected in case of negative `ID`)
+- `w1`, `w2`, ..., `wn` - weights of items
+- `v1`, `v2`, ..., `vn` - values of items
+
+You can specify output file (`-o`, `--output`) to save the results in format:
+
+```txt
+ID value i1 i2 ... in
+```
+
+where:
+- `ID` - unique identifier of the problem instance
+- `value` - value of the best solution
+- `i1`, `i2`, ..., `in` - 0/1 whether the item is in the knapsack or not
+
 ## Solvers
 
 Solvers are selected using `--solver` option. Each solver may have its own parameters that can be set in `params.ini` file.

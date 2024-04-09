@@ -21,11 +21,13 @@ class KnapsackSolution:
 class KnapsackProblem:
 
     def __init__(self):
+        self._id = 0
         self._weights: list[int] = []
         self._values: list[int] = []
         self._ratios: list[float] = []
         self._ratio_indices: list[int] = []
         self.weight_limit = 0
+        self.value_limit = 0
 
     def update_ratios(self):
         self._ratios = []
@@ -79,3 +81,25 @@ class KnapsackProblem:
             self._values.append(item['value'])
         self.weight_limit = json_data['weight_limit']
         self.update_ratios()
+
+    def load_line(self, input_line: str):
+        self._weights.clear()
+        self._values.clear()
+        parts = input_line.strip().split()
+        self._id = int(parts[0])
+        n = int(parts[1])
+        self.weight_limit = int(parts[2])
+        index = 3
+        if self._id < 0:
+            self.value_limit = int(parts[index])
+            index += 1
+        end = 2 * n + index
+        while index < end:
+            self._weights.append(int(parts[index]))
+            self._values.append(int(parts[index+1]))
+            index += 2
+        self.update_ratios()
+
+    def result_line(self, solution: KnapsackSolution) -> str:
+        bits = str(solution.vector).replace("", " ")[1:-1]
+        return f'{self._id} {len(self._weights)} {solution.value} {bits}'
